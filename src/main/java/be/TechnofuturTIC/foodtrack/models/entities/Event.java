@@ -26,4 +26,5 @@ public class Event {
     private String comment;
 
     private LocalDate date;
+
 }
