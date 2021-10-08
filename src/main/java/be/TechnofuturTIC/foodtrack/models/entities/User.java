@@ -28,8 +28,8 @@ public class User implements UserDetails, Serializable {
 
     private String password;
 
-    @OneToMany
-    private Set<Role> roles;
+    @OneToMany(fetch = FetchType.EAGER)
+    private Set<Role> roles = new HashSet<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -44,7 +44,7 @@ public class User implements UserDetails, Serializable {
     private boolean isCredentialsNonExpired = true;
     private boolean isEnabled = true;
 
-    public User(String username, String password, Set<Role> roles, boolean isNonExpired, boolean isNonLocked, boolean isCredentialsNonExpired, boolean isEnabled) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
         this.roles = roles;

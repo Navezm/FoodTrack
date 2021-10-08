@@ -2,6 +2,7 @@ package be.TechnofuturTIC.foodtrack.models.entities;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 
@@ -15,6 +16,7 @@ import java.io.Serializable;
 @ToString
 @EqualsAndHashCode
 @Data
+@NoArgsConstructor
 public class Role implements GrantedAuthority, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,5 +27,9 @@ public class Role implements GrantedAuthority, Serializable {
     @Override
     public String getAuthority() {
         return label;
+    }
+
+    public Role(String label) {
+        this.label = label;
     }
 }
