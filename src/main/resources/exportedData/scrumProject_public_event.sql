@@ -1,0 +1,2 @@
+INSERT INTO public.event (id, comment, date, status, foodtruck_id) VALUES (1, null, '2021-10-09', null, 3);
+INSERT INTO public.event (id, comment, date, status, foodtruck_id) VALUES (2, null, '2021-10-15', null, 2);

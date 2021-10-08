@@ -1,0 +1,2 @@
+INSERT INTO public.foodtruck (id, is_active, name, phone_number, website) VALUES (2, true, 'Burrito', '0475', 'www.burrito.be');
+INSERT INTO public.foodtruck (id, is_active, name, phone_number, website) VALUES (3, true, 'Crepe', '0474', 'www.crepe.be');

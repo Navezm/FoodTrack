@@ -2,6 +2,7 @@ package be.TechnofuturTIC.foodtrack.models.entities;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +16,7 @@ import java.util.Set;
 @Entity
 @ToString(of = {"id", "username", "roles"})
 @EqualsAndHashCode
+@NoArgsConstructor
 @Table(name = "security_user")
 @Data
 public class User implements UserDetails, Serializable {
@@ -41,6 +43,16 @@ public class User implements UserDetails, Serializable {
     private boolean isNonLocked = true;
     private boolean isCredentialsNonExpired = true;
     private boolean isEnabled = true;
+
+    public User(String username, String password, Set<Role> roles, boolean isNonExpired, boolean isNonLocked, boolean isCredentialsNonExpired, boolean isEnabled) {
+        this.username = username;
+        this.password = password;
+        this.roles = roles;
+        this.isNonExpired = isNonExpired;
+        this.isNonLocked = isNonLocked;
+        this.isCredentialsNonExpired = isCredentialsNonExpired;
+        this.isEnabled = isEnabled;
+    }
 
     @Override
     public boolean isAccountNonExpired() {
