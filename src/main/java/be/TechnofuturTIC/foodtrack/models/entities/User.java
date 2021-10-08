@@ -37,23 +37,28 @@ public class User implements UserDetails, Serializable {
         return authorities;
     }
 
+    private boolean isNonExpired = true;
+    private boolean isNonLocked = true;
+    private boolean isCredentialsNonExpired = true;
+    private boolean isEnabled = true;
+
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return isNonExpired;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return isNonLocked;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return isCredentialsNonExpired;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return isEnabled;
     }
 }
